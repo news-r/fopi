@@ -1,0 +1,12 @@
+Package: fopi
+Title: Freedom of Press Index
+Version: 0.0.0.9000
+Authors@R: person('John', 'Coene', email = 'jcoenep@gmail.com', role = c('cre', 'aut'))
+Description: Visualisation of the freedom of press index.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    shiny, 
+    golem
+RoxygenNote: 6.1.0
