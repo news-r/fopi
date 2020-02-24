@@ -1,4 +1,5 @@
 library(rvest)
+library(dplyr)
 
 # url
 uri <- "https://en.wikipedia.org/wiki/Press_Freedom_Index"
@@ -22,5 +23,28 @@ table <- html %>%
 
 table_long <- tidyr::pivot_longer(table, -country, names_to = "year")
 
+fopi_rank <- table_long %>% 
+  mutate(
+    value = gsub("\\).*", "", value),
+    value = gsub("\\(", "", value),
+    value = as.integer(value),
+    country = gsub("\\[.*\\]", "", country),
+    country_code = countrycode::countrycode(country, "country.name", "iso2c")
+  ) %>% 
+  rename(rank = value) %>% 
+  select(country, country_code, year, rank)
 
-usethis::use_data(DATASET, overwrite = TRUE)
+score <- table_long %>% 
+  mutate(
+    value = gsub("\\(.*\\)", "", value),
+    value = trimws(value),
+    value = gsub("−", "-", value)
+  ) %>% 
+  pull(value)
+
+fopi <- fopi_rank
+fopi$score <- score
+
+fopi <- tibble::as_tibble(fopi)
+
+usethis::use_data(fopi, overwrite = TRUE)
