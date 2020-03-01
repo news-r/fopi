@@ -12,4 +12,4 @@ RUN R -e 'remotes::install_github("news-r/fopi")'
 
 EXPOSE 8000
 ENTRYPOINT ["R", "-e", "fopi::run_api(commandArgs()[4], 8000)"]
-CMD ["0.0.0.0", "8000"]
+CMD ["0.0.0.0"]
