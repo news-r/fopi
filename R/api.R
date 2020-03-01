@@ -5,6 +5,7 @@
 #' @name api
 #' @export
 run_api <- function(host = "0.0.0.0", port = 3000){
+  port <- as.integer(port)
 
   fl <- system.file("api/api.R", package = "fopi")
 
