@@ -1,26 +1,33 @@
 
-# fopi
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
-The goal of fopi is to ...
+# fopi
+
+fopi contains with dataset, RESTful API and app presenting the Freedom
+of Speech Index.
 
 ## Installation
 
-You can install the released version of fopi from [CRAN](https://CRAN.R-project.org) with:
+You can install the development version of fopi from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("fopi")
+# install.packages("remotes")
+remotes::install_github("news-r/fopi")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Dataset is lazyly loaded.
 
 ``` r
 library(fopi)
-## basic example code
-```
 
+head(fopi)
+```

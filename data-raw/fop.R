@@ -45,6 +45,14 @@ score <- table_long %>%
 fopi <- fopi_rank
 fopi$score <- score
 
-fopi <- tibble::as_tibble(fopi)
+fopi <- tibble::as_tibble(fopi) %>% 
+  mutate(
+    year = as.integer(year),
+    score = case_when(
+      score == "N/A" ~ NA_character_,
+      TRUE ~ score
+    ),
+    score = as.numeric(score)
+  )
 
 usethis::use_data(fopi, overwrite = TRUE)
