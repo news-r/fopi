@@ -6,3 +6,7 @@ dev_history.R
 $run_dev.*
 ^LICENSE\.md$
 ^README\.Rmd$
+^\.travis\.yml$
+^appveyor\.yml$
+^\.circleci$
+^\.circleci/config\.yml$

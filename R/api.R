@@ -2,6 +2,8 @@
 #' 
 #' Run the Freedom of Press Index API.
 #' 
+#' @param host,port Parameters passed to \link[plumber]{plumb}.
+#' 
 #' @name api
 #' @export
 run_api <- function(host = "0.0.0.0", port = 3000){
@@ -15,4 +17,3 @@ run_api <- function(host = "0.0.0.0", port = 3000){
     swagger = TRUE
   )
 }
-

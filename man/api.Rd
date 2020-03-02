@@ -7,6 +7,9 @@
 \usage{
 run_api(host = "0.0.0.0", port = 3000)
 }
+\arguments{
+\item{host, port}{Parameters passed to \link[plumber]{plumb}.}
+}
 \description{
 Run the Freedom of Press Index API.
 }
