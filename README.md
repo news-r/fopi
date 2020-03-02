@@ -6,7 +6,7 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/news-r/fopi?branch=master&svg=true)](https://ci.appveyor.com/project/news-r/fopi)
+status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/fopi?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/fopi)
 <!-- badges: end -->
 
 # fopi
