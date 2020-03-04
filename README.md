@@ -22,6 +22,14 @@ data(fopi, package = "fopi")
 
 ## API
 
+From R
+
+```r
+run_api()
+```
+
+With docker
+
 ``` bash
 docker pull jcoenep/fopi
 docker run --rm -p 3000:8000 jcoenep/fopi
