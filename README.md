@@ -25,7 +25,7 @@ data(fopi, package = "fopi")
 From R
 
 ```r
-run_api()
+fopi::run_api()
 ```
 
 With docker
