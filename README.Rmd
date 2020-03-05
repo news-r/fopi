@@ -52,6 +52,10 @@ data(fopi, package = "fopi")
 
 Or via the [deployed API](http://app.news-r.org:2222/__swagger__/) but using the package.
 
+```{r}
+fopi::fopi_get_country("Switzerland")
+```
+
 ## Get it
 
 You can install the development version of fopi from Github with:
