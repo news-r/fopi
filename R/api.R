@@ -1,10 +1,10 @@
-#' API
+#' Run API
 #' 
 #' Run the Freedom of Press Index API.
 #' 
 #' @param host,port Parameters passed to \link[plumber]{plumb}.
 #' 
-#' @name api
+#' @name run_api
 #' @export
 run_api <- function(host = "0.0.0.0", port = 3000){
   port <- as.integer(port)
@@ -16,4 +16,74 @@ run_api <- function(host = "0.0.0.0", port = 3000){
     host = host, port = port,
     swagger = TRUE
   )
+}
+
+base_url <- "http://app.news-r.org:2222/"
+
+#' Call API
+#' 
+#' Get data via the API.
+#' 
+#' @param year Year of data to fetch.
+#' @param country Country of data to fetch.
+#' @param rank Rank of data to fetch.
+#' 
+#' @name call_api
+#' @export 
+fopi_get_year <- function(year){
+  if(missing(year))
+    stop("Missing `year`", call. = FALSE)
+
+  url <- httr::parse_url(base_url)
+  url$path <- "year"
+  url$query <- list(
+    year = year 
+  )
+  url <- httr::build_url(url)
+
+  response <- httr::GET(url)
+  httr::stop_for_status(response)
+  content <- httr::content(response)
+
+  purrr::map_dfr(content, tibble::as_tibble)
+}
+
+#' @rdname call_api
+#' @export 
+fopi_get_country <- function(country){
+  if(missing(country))
+    stop("Missing `country`", call. = FALSE)
+
+  url <- httr::parse_url(base_url)
+  url$path <- "country"
+  url$query <- list(
+    country = country 
+  )
+  url <- httr::build_url(url)
+
+  response <- httr::GET(url)
+  httr::stop_for_status(response)
+  content <- httr::content(response)
+
+  purrr::map_dfr(content, tibble::as_tibble)
+}
+
+#' @rdname call_api
+#' @export 
+fopi_get_rank <- function(rank){
+  if(missing(rank))
+    stop("Missing `rank`", call. = FALSE)
+
+  url <- httr::parse_url(base_url)
+  url$path <- "rank"
+  url$query <- list(
+    rank = rank 
+  )
+  url <- httr::build_url(url)
+
+  response <- httr::GET(url)
+  httr::stop_for_status(response)
+  content <- httr::content(response)
+
+  purrr::map_dfr(content, tibble::as_tibble)
 }

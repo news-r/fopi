@@ -5,6 +5,7 @@ RUN apt-get update -qq && apt-get install -y \
   git-core \
   libssl-dev \
   libxml2-dev \
+  libcurl-openssl-dev \
   libcurl4-gnutls-dev
 
 RUN install2.r plumber remotes
