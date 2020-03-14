@@ -3,10 +3,10 @@
 
 <!-- badges: start -->
 
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Build
 status](https://ci.appveyor.com/api/projects/status/eoilou2fr917aew4?svg=true)](https://ci.appveyor.com/project/JohnCoene/fopi)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 <!-- badges: end -->
 
 # fopi

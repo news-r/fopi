@@ -10,3 +10,4 @@ $run_dev.*
 ^appveyor\.yml$
 ^\.circleci$
 ^\.circleci/config\.yml$
+^\.github$

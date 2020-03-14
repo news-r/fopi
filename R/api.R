@@ -18,7 +18,25 @@ run_api <- function(host = "0.0.0.0", port = 3000){
   )
 }
 
+#' Base URL
+#' 
+#' Define base url, if API was self-deployed.
+#' 
+#' @param url URL to use as base.
+#' 
+#' @export 
+fopi_base_url <- function(url){
+  if(missing(url))
+    stop("Missing `url`")
+
+  options(FOPI_BASE_URL = url)
+}
+
 base_url <- "http://app.news-r.org:2222/"
+
+.get_base_url <- function(){
+  getOption("FOPI_BASE_URL", base_url)
+}
 
 #' Call API
 #' 
@@ -34,7 +52,7 @@ fopi_get_year <- function(year){
   if(missing(year))
     stop("Missing `year`", call. = FALSE)
 
-  url <- httr::parse_url(base_url)
+  url <- httr::parse_url(.get_base_url())
   url$path <- "year"
   url$query <- list(
     year = year 
@@ -54,7 +72,7 @@ fopi_get_country <- function(country){
   if(missing(country))
     stop("Missing `country`", call. = FALSE)
 
-  url <- httr::parse_url(base_url)
+  url <- httr::parse_url(.get_base_url())
   url$path <- "country"
   url$query <- list(
     country = country 
@@ -74,7 +92,7 @@ fopi_get_rank <- function(rank){
   if(missing(rank))
     stop("Missing `rank`", call. = FALSE)
 
-  url <- httr::parse_url(base_url)
+  url <- httr::parse_url(.get_base_url())
   url$path <- "rank"
   url$query <- list(
     rank = rank 
